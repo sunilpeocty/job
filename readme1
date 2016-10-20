@@ -1,0 +1,14 @@
+readme1
+composer create-project symfony/framework-standard-edition jobs "2.8.*"
+
+cd jobs/
+
+php app/console doctrine:database:create
+
+php app/console generate:bundle
+
+php app/console generate:doctrine:entity
+
+php app/console doctrine:schema:update 
+
+php app/console doctrine:generate:crud --entity=UserBundle:Account --route-prefix=user --with-write --format=annotation --no-interaction --overwrite
