@@ -35,6 +35,9 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    globals:
+        isFooter: true
+        isHeader: true
 
 # Doctrine Configuration
 doctrine:

@@ -24,11 +24,32 @@ class JobController extends Controller
      */
     public function indexAction()
     {
+        
+        
         $em = $this->getDoctrine()->getManager();
 
         $jobs = $em->getRepository('JobBundle:Job')->findAll();
 
         return $this->render('job/index.html.twig', array(
+            'jobs' => $jobs,
+        ));
+    }
+    
+    /**
+     * Lists all Job entities.
+     *
+     * @Route("/list", name="job_list")
+     * @Method("GET")
+     */
+    public function listAction()
+    {
+        
+        
+        $em = $this->getDoctrine()->getManager();
+
+        $jobs = $em->getRepository('JobBundle:Job')->findAll();
+
+        return $this->render('job/list.html.twig', array(
             'jobs' => $jobs,
         ));
     }

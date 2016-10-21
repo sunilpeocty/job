@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+{% set isFooter         = false %}
+{% block body %}
+ <div class="single">  
+      <h2>Recruiters by Locations</h2>
+        <div class="recruit_box">
+            {% for company in companies %}
+                <div class="col-md-3 recruit">
+                    <a href="{{ path('company_show', { 'id': company.id }) }}">
+                        <img src="{{ app.request.getSchemeAndHttpHost() }}{{ app.request.getBaseURL() }}/../theme/images/pic1.jpg" class="img-responsive" alt=""/>
+                        <h4>{{ company.companyTitle }}</h4>
+                    </a>
+                </div>
+            {% endfor %}            
+	   <div class="clearfix"> </div>
+	</div>
+	  
+    </div>       
+        
+{% endblock %}
+{% set isHeader         = false %}

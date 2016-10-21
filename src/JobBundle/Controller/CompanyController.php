@@ -32,6 +32,23 @@ class CompanyController extends Controller
             'companies' => $companies,
         ));
     }
+    
+    /**
+     * Lists all Company entities.
+     *
+     * @Route("/list", name="company_list")
+     * @Method("GET")
+     */
+    public function listAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $companies = $em->getRepository('JobBundle:Company')->findAll();
+
+        return $this->render('company/list.html.twig', array(
+            'companies' => $companies,
+        ));
+    }
 
     /**
      * Creates a new Company entity.
