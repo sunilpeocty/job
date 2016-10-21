@@ -53,3 +53,4 @@ class DefaultController extends Controller
         return $this->render('JobBundle:Default:index.html.twig');
     }
 }
+ 
