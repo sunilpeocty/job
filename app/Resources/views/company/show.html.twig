@@ -1,36 +1,44 @@
 {% extends 'base.html.twig' %}
-
+{% set isHeader         = false %}
 {% block body %}
-    <h1>Company</h1>
-
-    <table>
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ company.id }}</td>
-            </tr>
-            <tr>
-                <th>Companytitle</th>
-                <td>{{ company.companyTitle }}</td>
-            </tr>
-            <tr>
-                <th>Companyaddress</th>
-                <td>{{ company.companyAddress }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('company_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('company_edit', { 'id': company.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    
+            
+<div class="container">
+    <div class="single">  
+	   <div class="col-md-9 single_right">
+               
+                <table class="condidate_detail">
+                    <h4>Company Details</h4>
+			<tbody>
+				<tr>
+                                    <td>Company Title</td>
+                                    <td>{{ company.companyTitle }}</td>
+				</tr>
+                                <tr>
+                                    <td>Company Address</td>
+                                    <td>{{ company.companyAddress }}</td>
+				</tr>
+                               {% if app.user %}
+                                <tr>
+                                    <td></td>
+                                    <td>
+                                        <a href="{{ path('company_edit', { 'id': company.id }) }}"><label class="form-submit1"><input type="button" value="Edit"></label></a>      
+                                        {{ form_start(delete_form) }}<p>
+                                            <label class="form-submit1"><input type="submit" value="Delete"></label></p>
+                                        {{ form_end(delete_form) }}
+                                        <a href="{{ path('company_index') }}">Back to the list</a>       
+                                    </td>
+				</tr>  
+                                {% endif %}
+			</tbody>
+		</table>     
+         
+            </div>
+            <div class="col-md-3">  </div>
+            <div class="clearfix"> </div>
+    </div>
+</div>  
+                                        
 {% endblock %}
+
+{% set isFooter         = false %}

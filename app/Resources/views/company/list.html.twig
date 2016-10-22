@@ -1,13 +1,27 @@
 {% extends 'base.html.twig' %}
 {% set isHeader         = false %}
 {% block body %}
+    <div class="banner_1">
+	<div class="container">
+		<div id="search_wrapper1">
+		   <div id="search_form" class="clearfix">
+		    <h1>Start your job search</h1>
+		    <p>
+			 <input type="text" class="text" placeholder=" " value="Enter Keyword(s)" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter Keyword(s)';}">
+			 <input type="text" class="text" placeholder=" " value="Location" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Location';}">
+			 <label class="btn2 btn-2 btn2-1b"><input type="submit" value="Find Jobs"></label>
+			</p>
+           </div>
+		</div>
+   </div> 
+</div>
  <div class="single">  
-      <h2>Recruiters by Locations</h2>
+      <h2>Recruiters </h2>
         <div class="recruit_box">
             {% for company in companies %}
                 <div class="col-md-3 recruit">
                     <a href="{{ path('company_show', { 'id': company.id }) }}">
-                        <img src="{{ app.request.getSchemeAndHttpHost() }}{{ app.request.getBaseURL() }}/../theme/images/pic1.jpg" class="img-responsive" alt=""/>
+                        <img src="{{ app.request.getSchemeAndHttpHost() }}{{ app.request.getBaseURL() }}/../theme/images/test2.jpg" class="img-responsive" alt=""/>
                         <h4>{{ company.companyTitle }}</h4>
                     </a>
                 </div>
@@ -19,4 +33,4 @@
         
 {% endblock %}
 
-{% set isFooter         = false %}
+{% set isFooter = false %}
