@@ -53,6 +53,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome {{ app.user.username }} <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="{{ app.request.getSchemeAndHttpHost() }}{{ app.request.getBaseURL() }}/resume">Upload Resume</a></li>
+                            <li><a href="{{ app.request.getSchemeAndHttpHost() }}{{ app.request.getBaseURL() }}/profile">Profile</a></li>
                             <li><a href="{{ app.request.getSchemeAndHttpHost() }}{{ app.request.getBaseURL() }}/logout">Logout</a></li>
                         </ul>
                     </li>
