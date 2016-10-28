@@ -6,33 +6,36 @@
     {% for flash_message in app.session.flashBag.get('notice') %}  
         <div class="flash-notice"> {{ flash_message }} </div>
     {% endfor %}
-        
     
-    {% for j in user %}
+  
+    {% if user %} 
+        
+  
        <table class='table'> 
             <tr>
                 <td> Email </td>
-                <td>{{ j.email }}</td>
+                <td> <input type='email' value='{{ user.email }}'/> </td>
             </tr>
             <tr>
                 <td> Username </td>
-                <td>{{ j.username }}</td>
-            </tr>
+                <td><input type='username' value='{{ user.username }}'/></td>
+            </tr>            
             <tr>
                 <td> Role </td>
                 <td>              
-                    {% for js in j.roles %}                                 
-                        {{ js }}                                               
+                    {% for js in user.roles %}                                                     
+                        <input type='role' value='{{ js }} '/>
                     {% endfor %}                                
                 </td>
             </tr>
             <tr>
-                <td> </td>
-                <td> <a href='{{ app.request.getSchemeAndHttpHost() }}{{ app.request.getBaseURL() }}/user/role/edit/{{ j.id }}' > Edit </a></td>
+                <td>  </td>
+                <td><input type='submit' value='Submit'/></td>
             </tr>
         </table>
     
-    {% endfor %} 
+   
+    {% endif %}
     
 {% endblock %}
 {% set isFooter = false %}
