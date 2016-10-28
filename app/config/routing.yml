@@ -1,8 +1,13 @@
 job:
     resource: "@JobBundle/Controller/"
-    type:     annotation
+    type:     annotation 
     prefix:   /
-
+    
+user:
+    resource: "@JobBundle/Controller/UserController.php"
+    type:     annotation
+    prefix:   /user
+    
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation

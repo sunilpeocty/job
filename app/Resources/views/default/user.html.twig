@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+{% set isHeader         = false %}
+{% block body %}
+    
+    {# get flash message here #}
+    {% for flash_message in app.session.flashBag.get('notice') %}  
+        <div class="flash-notice"> {{ flash_message }} </div>
+    {% endfor %}
+        
+    
+    {% for j in user %}
+       <table class='table'> 
+            <tr>
+                <td> Email </td>
+                <td>{{ j.email }}</td>
+            </tr>
+            <tr>
+                <td> Username </td>
+                <td>{{ j.username }}</td>
+            </tr>
+            <tr>
+                <td> Role </td>
+                <td>              
+                    {% for js in j.roles %}                                 
+                        {{ js }}                                               
+                    {% endfor %}                                
+                </td>
+            </tr>        
+        </table>
+    
+    {% endfor %} 
+    
+{% endblock %}
+{% set isFooter = false %}
