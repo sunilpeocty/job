@@ -6,10 +6,13 @@
     {% for flash_message in app.session.flashBag.get('notice') %}  
         <div class="flash-notice"> {{ flash_message }} </div>
     {% endfor %}
+    {# {{dump(app.request.server)}} #}
+    
     
   
+  
     {% if user %} 
-        
+    <form action='{{ app.request.server.get('REQUEST_SCHEME') }}://{{ app.request.server.get('HTTP_HOST') }}{{ app.request.server.get('PHP_SELF') }}' >
   
        <table class='table'> 
             <tr>
@@ -22,18 +25,27 @@
             </tr>            
             <tr>
                 <td> Role </td>
-                <td>              
-                    {% for js in user.roles %}                                                     
-                        <input type='role' value='{{ js }} '/>
-                    {% endfor %}                                
+                <td>   
+                    <select>
+                        <option value=''> Select Role </option>                     
+                        {% for rl in role_list %}
+                            {% for rl1 in rl %}                                                                                                    
+                                {% if rl1 in user.roles %}
+                                    <option value='' selected > {{rl1}} </option>                                      
+                                {% else %}
+                                    <option value=''> {{rl1}} </option>                   
+                                {% endif %}   
+                            {% endfor %} 
+                        {% endfor %}
+                    </select>                   
                 </td>
             </tr>
             <tr>
-                <td>  </td>
+                <td></td>
                 <td><input type='submit' value='Submit'/></td>
             </tr>
         </table>
-    
+    </form>
    
     {% endif %}
     

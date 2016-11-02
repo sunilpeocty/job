@@ -63,6 +63,9 @@ class DefaultController extends Controller
         $form = $this->createFormBuilder()
                 ->add('submitFile', 'file', array('label' => 'File to Submit'))
                 ->getForm();
+        
+        
+        
         $file_data = array();
         // Check if we are posting stuff
         if ($request->getMethod('post') == 'POST') {
@@ -87,7 +90,7 @@ class DefaultController extends Controller
          }
 
         return $this->render('JobBundle:Default:upload.html.twig',
-            array('form' => $form->createView(),'data_upload'=>$file_data)
+            array('form' => $form->createView(),'data_upload'=>$file_data )
         );
     }
 }
